@@ -36,9 +36,8 @@ public class GestionePrenotazioni {
 				int n=Integer.parseInt(s[2]);
 
 				Prenotazione p=new Prenotazione(s[0],s[1],n,s[3]);
-				if(LocalDateTime.parse(p.orario, formatter).isAfter(LocalDate.now().atStartOfDay())) {
+				
 				prenotazioni.add(p);
-				}
 
 			}
 			reader.close();
@@ -57,7 +56,7 @@ public class GestionePrenotazioni {
 		int n=Integer.parseInt(l[1]);
 		Prenotazione p=new Prenotazione(l[2],l[3],n,d.format(formatterr)+l[0]);
 		
-		if(p.orario.length()==12) {
+		if(p.orario.length()==12&&LocalDateTime.parse(p.orario, formatter).isAfter(LocalDateTime.now())) {
 			
 			prenotazioni.add(p);
 			agg();
