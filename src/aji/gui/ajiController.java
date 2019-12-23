@@ -39,6 +39,9 @@ public class ajiController {
 	@FXML // fx:id="add"
 	private Button add; // Value injected by FXMLLoader
 
+	@FXML
+	private Button edit;
+
 	@FXML // fx:id="remove"
 	private Button remove; // Value injected by FXMLLoader
 
@@ -68,13 +71,13 @@ public class ajiController {
 		primo.getItems().clear();
 		secondo.getItems().clear();
 		agg();
-		
+
 	}
-	
+
 	private void ok() {
 		messaggio.setText("OK");
 	}
-	
+
 	private void errore() {
 		messaggio.setText("ERRORE");
 	}
@@ -84,21 +87,20 @@ public class ajiController {
 
 			mattina.getItems().add(ges.mattina(date.getValue()).get(i).toStringP());
 		}
-		nMattina.setText(ges.postiM(date.getValue())+"");
+		nMattina.setText(ges.postiM(date.getValue()) + "");
 
 		for (int i = 0; i < ges.primo(date.getValue()).size(); i++) {
 			primo.getItems().add(ges.primo(date.getValue()).get(i).toStringP());
-			
 
 		}
-		nPrimo.setText(ges.postiP(date.getValue())+"");
+		nPrimo.setText(ges.postiP(date.getValue()) + "");
 
 		for (int i = 0; i < ges.secondo(date.getValue()).size(); i++) {
 
 			secondo.getItems().add(ges.secondo(date.getValue()).get(i).toStringP());
 
 		}
-		nSecondo.setText(ges.postiS(date.getValue())+"");
+		nSecondo.setText(ges.postiS(date.getValue()) + "");
 
 	}
 
@@ -106,10 +108,10 @@ public class ajiController {
 	void onAdd(ActionEvent event) {
 
 		try {
-			
+
 			ges.addPrenotazione(info.getText(), date.getValue());
 			clear();
-			
+
 			ok();
 
 		} catch (Exception e) {
@@ -121,7 +123,7 @@ public class ajiController {
 	void onDate(ActionEvent event) {
 
 		try {
-			
+
 			ges.caricaPrenitazioni();
 			clear();
 			ok();
@@ -134,18 +136,46 @@ public class ajiController {
 	@FXML
 	void onRemove(ActionEvent event) {
 		try {
-			
-			if(mattina.getSelectionModel().getSelectedItem()!=null)
-			ges.elimina(mattina.getSelectionModel().getSelectedItem(), date.getValue());
-			
-			else if(primo.getSelectionModel().getSelectedItem()!=null)
+
+			if (mattina.getSelectionModel().getSelectedItem() != null)
+				ges.elimina(mattina.getSelectionModel().getSelectedItem(), date.getValue());
+
+			else if (primo.getSelectionModel().getSelectedItem() != null)
 				ges.elimina(primo.getSelectionModel().getSelectedItem(), date.getValue());
-			
-			else if (secondo.getSelectionModel().getSelectedItem()!=null)
+
+			else if (secondo.getSelectionModel().getSelectedItem() != null)
 				ges.elimina(secondo.getSelectionModel().getSelectedItem(), date.getValue());
-			
+
 			clear();
-			
+
+		} catch (Exception e) {
+			errore();
+		}
+
+	}
+
+	@FXML
+	void onEdit(ActionEvent event) {
+
+		try {
+
+			if (mattina.getSelectionModel().getSelectedItem() != null) {
+				info.setText(mattina.getSelectionModel().getSelectedItem());
+				ges.elimina(mattina.getSelectionModel().getSelectedItem(), date.getValue());
+
+			}
+
+			else if (primo.getSelectionModel().getSelectedItem() != null) {
+				info.setText(primo.getSelectionModel().getSelectedItem());
+				ges.elimina(primo.getSelectionModel().getSelectedItem(), date.getValue());
+			}
+
+			else if (secondo.getSelectionModel().getSelectedItem() != null) {
+				info.setText(mattina.getSelectionModel().getSelectedItem());
+				ges.elimina(secondo.getSelectionModel().getSelectedItem(), date.getValue());
+			}
+
+			clear();
 
 		} catch (Exception e) {
 			errore();
@@ -166,6 +196,8 @@ public class ajiController {
 		assert secondo != null : "fx:id=\"secondo\" was not injected: check your FXML file 'aji.fxml'.";
 		assert nSecondo != null : "fx:id=\"nSecondo\" was not injected: check your FXML file 'aji.fxml'.";
 		assert messaggio != null : "fx:id=\"messeggio\" was not injected: check your FXML file 'aji.fxml'.";
-
+		assert edit != null : "fx:id=\"edit\" was not injected: check your FXML file 'aji.fxml'.";
+		
+		add.setDefaultButton(true);
 	}
 }
