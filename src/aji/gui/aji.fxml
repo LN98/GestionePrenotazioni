@@ -27,17 +27,17 @@
                         <Insets right="5.0" top="5.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button fx:id="add" mnemonicParsing="false" onAction="#onAdd" prefHeight="25.0" prefWidth="46.0" text="add">
+                  <Button fx:id="add" mnemonicParsing="false" onAction="#onAdd" prefHeight="25.0" prefWidth="54.0" text="add">
                      <HBox.margin>
                         <Insets top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="remove" mnemonicParsing="false" onAction="#onRemove" prefHeight="25.0" prefWidth="64.0" text="remove">
+                  <Button fx:id="remove" mnemonicParsing="false" onAction="#onRemove" prefHeight="25.0" prefWidth="82.0" text="remove">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="edit" mnemonicParsing="false" onAction="#onEdit" prefHeight="25.0" prefWidth="45.0" text="edit">
+                  <Button fx:id="edit" mnemonicParsing="false" onAction="#onEdit" prefHeight="25.0" prefWidth="54.0" text="edit">
                      <HBox.margin>
                         <Insets left="5.0" top="5.0" />
                      </HBox.margin>
