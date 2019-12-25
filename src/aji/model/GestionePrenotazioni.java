@@ -16,7 +16,7 @@ public class GestionePrenotazioni {
 
 	public ArrayList<Prenotazione> prenotazioni=new ArrayList<>();
 	private DateTimeFormatter formatterr = DateTimeFormatter.ofPattern("yyyyMMdd");
-	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHH:mm");
 
 
 	public void caricaPrenitazioni() {
@@ -33,9 +33,9 @@ public class GestionePrenotazioni {
 				String[] s;
 				s=l.split(" "); //nome tel n orario attivo
 				
-				int n=Integer.parseInt(s[2]);
+				int n=Integer.parseInt(s[0]);
 
-				Prenotazione p=new Prenotazione(s[0],s[1],n,s[3]);
+				Prenotazione p=new Prenotazione(n,s[1],s[2]+" "+s[3]);
 				
 				prenotazioni.add(p);
 
@@ -53,10 +53,10 @@ public class GestionePrenotazioni {
 		String[] l;
 		l=s.split(" "); //nome tel n orario attivo
 		
-		int n=Integer.parseInt(l[1]);
-		Prenotazione p=new Prenotazione(l[2],l[3],n,d.format(formatterr)+l[0]);
+		int n=Integer.parseInt(l[0]);
+		Prenotazione p=new Prenotazione(n,d.format(formatterr)+l[1],l[2]+" "+l[3]);
 		
-		if(p.orario.length()==12&&LocalDateTime.parse(p.orario, formatter).isAfter(LocalDateTime.now())) {
+		if(p.orario.length()==13&&LocalDateTime.parse(p.orario, formatter).isAfter(LocalDateTime.now())) {
 			
 			prenotazioni.add(p);
 			agg();
@@ -118,8 +118,8 @@ public void elimina(String s,LocalDate d) {
 		String[] l;
 		l=s.split(" "); //nome tel n orario attivo
 		
-		int n=Integer.parseInt(l[1]);
-		Prenotazione p=new Prenotazione(l[2],l[3],n,d.format(formatterr)+l[0]);
+		int n=Integer.parseInt(l[0]);
+		Prenotazione p=new Prenotazione(n,d.format(formatterr)+l[1],l[2]+" "+l[3]);
 		for (int i = 0; i < prenotazioni.size(); i++) {
 			if (prenotazioni.get(i).toString().equals(p.toString())) {
 				

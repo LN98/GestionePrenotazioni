@@ -17,7 +17,7 @@ public class test {
 //		ges.addPrenotazione(p.toString());
 //		
 
-		ges.addPrenotazione("1230 2 linza 4444",LocalDate.of(2019, 12, 25));
+		ges.addPrenotazione("2 12:30 linza 4444",LocalDate.of(2019, 12, 26));
 		ges.caricaPrenitazioni();
 //		System.out.println(ges.prenotazioni.size());
 //		ges.addPrenotazione("lina 3209589668 5 2030",LocalDate.of(2019, 12, 25));
