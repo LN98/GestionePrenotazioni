@@ -59,9 +59,9 @@
                   </HBox>
                </children>
             </HBox>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ora(HHmm) posti nome telefono">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="posti ora(HH:mm) nome telefono">
                <VBox.margin>
-                  <Insets left="130.0" />
+                  <Insets left="110.0" />
                </VBox.margin>
             </Text>
             <VBox prefHeight="200.0" prefWidth="100.0">
