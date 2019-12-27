@@ -24,12 +24,12 @@ public class Prenotazione {
 	@Override
 	public String toString() {
 
-		return n + " "  + orario + " "+ nome;
+		return n + " "  + orario + nome;
 
 	}
 	
 	public String toStringP() {
-		return n + " " + orario.substring(8) + " "+ nome;
+		return n + " " + orario.substring(8) + nome;
 	}
 	
 	

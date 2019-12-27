@@ -36,7 +36,7 @@ public class GestionePrenotazioni {
 				int n=Integer.parseInt(s[0]);
 
 				
-				Prenotazione p = new Prenotazione(n, s[1], l.substring(16));
+				Prenotazione p = new Prenotazione(n, s[1], l.substring(15));
 	
 	
 				
@@ -57,7 +57,7 @@ public class GestionePrenotazioni {
 		l=s.split(" "); //nome tel n orario attivo
 
 		int n = Integer.parseInt(l[0]);
-		Prenotazione p = new Prenotazione(n, d.format(formatterr) + l[1], s.substring(8));
+		Prenotazione p = new Prenotazione(n, d.format(formatterr) + l[1], s.substring(7));
 
 		if(p.orario.length()==13&&LocalDateTime.parse(p.orario, formatter).isAfter(LocalDateTime.now())) {
 			
@@ -122,7 +122,7 @@ public void elimina(String s,LocalDate d) {
 		l=s.split(" "); //nome tel n orario attivo
 		
 		int n=Integer.parseInt(l[0]);
-		Prenotazione p = new Prenotazione(n, d.format(formatterr) + l[1], s.substring(8));
+		Prenotazione p = new Prenotazione(n, d.format(formatterr) + l[1], s.substring(7));
 		
 		for (int i = 0; i < prenotazioni.size(); i++) {
 			if (prenotazioni.get(i).toString().equals(p.toString())) {
