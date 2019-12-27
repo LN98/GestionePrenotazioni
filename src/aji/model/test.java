@@ -11,15 +11,18 @@ public class test {
 		
 		GestionePrenotazioni ges =new GestionePrenotazioni();
 		ges.caricaPrenitazioni();
+		
 //		
 //		Prenotazione p=new Prenotazione("lina","3209589668",5,"201912252030");
 //		
 //		ges.addPrenotazione(p.toString());
 //		
 
-//		ges.addPrenotazione("2 12:30 linza",LocalDate.of(2019, 12, 30));
-//		ges.caricaPrenitazioni();
+		ges.addPrenotazione("2 12:30 linza",LocalDate.of(2019, 12, 30));
+//		System.out.println(ges.prenotazioni.size());
+//		ges.caricaPrenitazioni();:
 		ges.elimina("2 12:30 linza",LocalDate.of(2019, 12, 30));
+//		System.out.println(ges.prenotazioni.size());
 //		System.out.println(ges.prenotazioni.size());
 //		ges.addPrenotazione("lina 3209589668 5 2030",LocalDate.of(2019, 12, 25));
 //		

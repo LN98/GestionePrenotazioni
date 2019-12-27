@@ -19,17 +19,6 @@ public class Prenotazione {
 
 	}
 	
-	public Prenotazione(String s,LocalDate d) {
-		DateTimeFormatter formatterr = DateTimeFormatter.ofPattern("yyyyMMdd");
-		String[] l;
-		l=s.split(" "); //nome tel n orario attivo
-		
-		int n=Integer.parseInt(l[1]);
-		this.nome=l[2]+" "+l[3];
-		this.n=n;
-		this.orario=d.format(formatterr)+l[0];
-		
-	}
 
 
 	@Override
